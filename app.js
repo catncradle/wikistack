@@ -3,10 +3,11 @@ const volleyball = require('volleyball')
 const bodyParser = require('body-parser')
 const nunjucks = require('nunjucks')
 const router = require('./routes')
+const {Page,User} = require('./models')
 
 
 const app = express()
-
+console.log(Page+'')
 
 //middleware
 app.use(volleyball)
