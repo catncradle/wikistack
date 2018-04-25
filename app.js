@@ -7,7 +7,7 @@ const {Page,User} = require('./models')
 
 
 const app = express()
-console.log(Page+'')
+
 
 //middleware
 app.use(volleyball)
@@ -26,11 +26,18 @@ app.use(router)
 
 
 
+User.sync()
+.then(()=>{
+    console.log('users synced!')
+    return Page.sync()
+}).then(()=>{
+    console.log('pages synced')
+    app.listen('3000',()=>{
+        console.log('listening on port 3000')
+    })
+}).catch(console.error.bind(console))
 
 
 
 
-app.listen('3000',()=>{
-    console.log('listening on port 3000')
-})
 
